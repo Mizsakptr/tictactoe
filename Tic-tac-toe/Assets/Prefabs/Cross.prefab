@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5606914405261014853}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cross
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 4622573912326953414}
   - component: {fileID: 3416302164678176820}
   - component: {fileID: 2173635910634227250}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Criss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -150,7 +150,7 @@ GameObject:
   - component: {fileID: 455124860222447317}
   - component: {fileID: 7845886501203517691}
   - component: {fileID: 2159549725835662036}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cross
   m_TagString: Untagged
   m_Icon: {fileID: 0}

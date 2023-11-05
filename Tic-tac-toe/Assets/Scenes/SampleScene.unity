@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 249724361}
   - component: {fileID: 249724360}
   - component: {fileID: 249724359}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BottomCenter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -544,7 +544,7 @@ GameObject:
   - component: {fileID: 865667681}
   - component: {fileID: 865667680}
   - component: {fileID: 865667679}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TopLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -846,7 +846,7 @@ GameObject:
   - component: {fileID: 1221042605}
   - component: {fileID: 1221042604}
   - component: {fileID: 1221042603}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: MiddleLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -951,7 +951,7 @@ GameObject:
   - component: {fileID: 1362700295}
   - component: {fileID: 1362700294}
   - component: {fileID: 1362700293}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TopCenter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1056,7 +1056,7 @@ GameObject:
   - component: {fileID: 1413466352}
   - component: {fileID: 1413466351}
   - component: {fileID: 1413466350}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: MiddleRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1161,7 +1161,7 @@ GameObject:
   - component: {fileID: 1440146055}
   - component: {fileID: 1440146054}
   - component: {fileID: 1440146053}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: MiddleCenter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1266,7 +1266,7 @@ GameObject:
   - component: {fileID: 1541212255}
   - component: {fileID: 1541212254}
   - component: {fileID: 1541212253}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BottomLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1511,7 +1511,7 @@ GameObject:
   - component: {fileID: 1798129828}
   - component: {fileID: 1798129827}
   - component: {fileID: 1798129826}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BottomRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1654,7 +1654,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1839244266}
-  - component: {fileID: 1839244265}
+  - component: {fileID: 1839244268}
+  - component: {fileID: 1839244267}
   m_Layer: 0
   m_Name: Scripthandler
   m_TagString: Untagged
@@ -1662,20 +1663,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1839244265
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1839244264}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fc532fbfdd127241bfac5da88bea92f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cross: {fileID: 1867736436422897077, guid: a09bbeed04f26894ebfb53e18e0d53ba, type: 3}
-  circle: {fileID: 3522144421903999946, guid: d3d04cb8a0f1003418a29c0059051ea5, type: 3}
 --- !u!4 &1839244266
 Transform:
   m_ObjectHideFlags: 0
@@ -1691,6 +1678,46 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1839244267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1839244264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6772c8640279764e90876953b5b35f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Scripthandler: {fileID: 1839244264}
+  isPlayerOne: 1
+  cubes:
+  - {fileID: 865667677}
+  - {fileID: 1362700291}
+  - {fileID: 2079061818}
+  - {fileID: 1221042601}
+  - {fileID: 1440146051}
+  - {fileID: 1413466348}
+  - {fileID: 1541212251}
+  - {fileID: 249724357}
+  - {fileID: 1798129824}
+--- !u!114 &1839244268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1839244264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5db592226cd6d148a6602717b24430a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cross: {fileID: 1867736436422897077, guid: a09bbeed04f26894ebfb53e18e0d53ba, type: 3}
+  circle: {fileID: 3522144421903999946, guid: d3d04cb8a0f1003418a29c0059051ea5, type: 3}
+  Scripthandler: {fileID: 1839244264}
+  isPlayerOne: 0
 --- !u!1 &2079061818
 GameObject:
   m_ObjectHideFlags: 0
@@ -1703,7 +1730,7 @@ GameObject:
   - component: {fileID: 2079061822}
   - component: {fileID: 2079061821}
   - component: {fileID: 2079061820}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TopRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
