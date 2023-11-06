@@ -24,12 +24,13 @@ public class GameState : MonoBehaviour
 
     void Update()
     {
-        
+
         isPlayerOne = Scripthandler.GetComponent<Instantiating>().isPlayerOne;
 
         Ray ray = new Ray(cubes[counter].transform.position, transform.up);
-        Debug.DrawRay(cubes[counter].transform.position, transform.up, Color.red);
         RaycastHit hit;
+
+        Debug.DrawRay(cubes[counter].transform.position, transform.up, Color.red);
 
         if (Physics.Raycast(ray, out hit) && hit.transform.gameObject.layer == LayerMask.NameToLayer("CircleLayer"))
         {
@@ -42,7 +43,7 @@ public class GameState : MonoBehaviour
         }
 
         counter++;
-        if(counter >= 9) {
+        if (counter >= 9) {
             counter = 0;
         }
 
@@ -135,18 +136,18 @@ public class GameState : MonoBehaviour
         }
 
         //isdraw
-        if ((GameStateArray[0] == ("Cross") || GameStateArray[0] == ("Circle")) && 
-           (GameStateArray[1] == ("Cross") || GameStateArray[1] == ("Circle"))&& 
-           (GameStateArray[2] == ("Cross") || GameStateArray[2] == ("Circle"))&& 
-           (GameStateArray[3] == ("Cross") || GameStateArray[3] == ("Circle"))&& 
-           (GameStateArray[4] == ("Cross") || GameStateArray[4] == ("Circle"))&& 
-           (GameStateArray[5] == ("Cross") || GameStateArray[5] == ("Circle"))&&
-           (GameStateArray[6] == ("Cross") || GameStateArray[6] == ("Circle"))&& 
-           (GameStateArray[7] == ("Cross") || GameStateArray[7] == ("Circle"))&& 
-           (GameStateArray[8] == ("Cross") || GameStateArray[8] == ("Circle"))&&
+        if ((GameStateArray[0] == ("Cross") || GameStateArray[0] == ("Circle")) &&
+           (GameStateArray[1] == ("Cross") || GameStateArray[1] == ("Circle")) &&
+           (GameStateArray[2] == ("Cross") || GameStateArray[2] == ("Circle")) &&
+           (GameStateArray[3] == ("Cross") || GameStateArray[3] == ("Circle")) &&
+           (GameStateArray[4] == ("Cross") || GameStateArray[4] == ("Circle")) &&
+           (GameStateArray[5] == ("Cross") || GameStateArray[5] == ("Circle")) &&
+           (GameStateArray[6] == ("Cross") || GameStateArray[6] == ("Circle")) &&
+           (GameStateArray[7] == ("Cross") || GameStateArray[7] == ("Circle")) &&
+           (GameStateArray[8] == ("Cross") || GameStateArray[8] == ("Circle")) &&
            !playerOneWon && !playerTwoWon)
         {
-            isDraw = true;           
+            isDraw = true;
         }
 
         if (isDraw)
@@ -156,6 +157,39 @@ public class GameState : MonoBehaviour
         if (playerTwoWon)
             Debug.Log("Player 2 Won");
 
+
+        //--------------------------------------------------------------------------------------------------------------------
+        if (Input.GetKeyDown(KeyCode.F)) 
+        { 
+         GameObject[] objectsInCrossLayer = GameObject.FindGameObjectsWithTag("Cross");
+         GameObject[] objectsCircleInLayer = GameObject.FindGameObjectsWithTag("Circle");
+        
+
+            foreach (var obj in objectsInCrossLayer)
+            {
+                Destroy(obj);
+            }
+           
+            foreach (var obj in objectsCircleInLayer)
+            {
+                Destroy(obj);
+            }
+
+            for (int i = 0; i < GameStateArray.Length; i++)
+            {
+                GameStateArray[i] = "NULL";
+            }
+
+            isPlayerOne = true;
+            playerOneWon = false;
+            playerTwoWon = false;
+            isDraw = false;
+
+        }
+        //--------------------------------------------------------------------------------------------------------------------------
+
     }
+
+
 
 }
