@@ -12,6 +12,7 @@ public class GameState : MonoBehaviour
     public bool playerOneWon = false;
     public bool playerTwoWon = false;
     public bool isDraw = false;
+    public bool isReplay = false;
     //******************************
     //Ha nem akarod magad elhányni, akkor ennél lentebb ne olvass el semmiféle kódot
 
@@ -24,7 +25,7 @@ public class GameState : MonoBehaviour
 
     void Update()
     {
-
+        isReplay = Scripthandler.GetComponent<UIHandler>().isReplay;
         isPlayerOne = Scripthandler.GetComponent<Instantiating>().isPlayerOne;
 
         Ray ray = new Ray(cubes[counter].transform.position, transform.up);
@@ -159,8 +160,12 @@ public class GameState : MonoBehaviour
 
 
         //--------------------------------------------------------------------------------------------------------------------
-        if (Input.GetKeyDown(KeyCode.F)) 
-        { 
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            isReplay = true;
+        }
+        if (isReplay)
+        {
          GameObject[] objectsInCrossLayer = GameObject.FindGameObjectsWithTag("Cross");
          GameObject[] objectsCircleInLayer = GameObject.FindGameObjectsWithTag("Circle");
         
@@ -184,6 +189,7 @@ public class GameState : MonoBehaviour
             playerOneWon = false;
             playerTwoWon = false;
             isDraw = false;
+            isReplay = false;
 
         }
         //--------------------------------------------------------------------------------------------------------------------------
