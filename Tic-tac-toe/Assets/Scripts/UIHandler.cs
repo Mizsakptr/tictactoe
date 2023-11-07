@@ -11,6 +11,10 @@ public class UIHandler : MonoBehaviour
     public GameObject PlayerTwoWonText;
     public GameObject DrawText;
 
+    public GameObject Player1Text;
+    public GameObject Player2Text;
+    [SerializeField] private Material GridMaterial;
+
     public bool isPlayerOne = true;
     public bool playerOneWon = false;
     public bool playerTwoWon = false;
@@ -32,9 +36,24 @@ public class UIHandler : MonoBehaviour
         playerTwoWon = Scripthandler.GetComponent<GameState>().playerTwoWon;
         isDraw = Scripthandler.GetComponent<GameState>().isDraw;
 
+        if(isPlayerOne)
+        {
+            GridMaterial.color = Color.blue;
+            Player1Text.SetActive(true);
+            Player2Text.SetActive(false);
+        }
+        else
+        {
+            GridMaterial.color = Color.red;
+            Player1Text.SetActive(false);
+            Player2Text.SetActive(true);
+        }
+
         //Check for winners
         if (playerOneWon || playerTwoWon || isDraw)
         {
+            Player1Text.SetActive(false);
+            Player2Text.SetActive(false);
             GameEnd();
         }
         //checks if game is restarted
@@ -59,21 +78,13 @@ public class UIHandler : MonoBehaviour
 
     // Pops up the End window and replay option.
     void GameEnd(){
-        if (isReplay == false)
-        {
-            ReplayWindow.SetActive(true);
-            if (playerOneWon)
-            {
-                PlayerOneWonText.SetActive(true);
-            }
-            else if (playerTwoWon)
-            {
-                PlayerTwoWonText.SetActive(true);
-            }
-            else
-            {
-                DrawText.SetActive(true);
-            }
+        ReplayWindow.SetActive(true);
+        if (playerOneWon){
+            PlayerOneWonText.SetActive(true);
+        }else if (playerTwoWon){
+            PlayerTwoWonText.SetActive(true);
+        }else{
+            DrawText.SetActive(true);
         }
     }
     //replay button action changes restart to true

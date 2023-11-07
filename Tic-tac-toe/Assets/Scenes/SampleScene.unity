@@ -632,11 +632,11 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: 0, g: 0, b: 0, a: 0.4392157}
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_PressedColor: {r: 1, g: 0.6, b: 0, a: 0.6666667}
+    m_SelectedColor: {r: 0, g: 0, b: 0, a: 1}
+    m_DisabledColor: {r: 0, g: 0, b: 0, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -654,7 +654,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 524804952}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1839244269}
+        m_TargetAssemblyTypeName: UIHandler, Assembly-CSharp
+        m_MethodName: ReplayPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &524804952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -668,7 +680,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.48235294}
+  m_Color: {r: 1, g: 0.60045624, b: 0, a: 0.5372549}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -938,7 +950,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &760786271
 RectTransform:
   m_ObjectHideFlags: 0
@@ -951,9 +963,9 @@ RectTransform:
   m_LocalScale: {x: 0.65, y: 0.65, z: 0.65}
   m_ConstrainProportionsScale: 1
   m_Children:
+  - {fileID: 925890183}
   - {fileID: 528523900}
   - {fileID: 374815060}
-  - {fileID: 925890183}
   - {fileID: 524804950}
   m_Father: {fileID: 1642671585}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2562,6 +2574,7 @@ GameObject:
   - component: {fileID: 1839244266}
   - component: {fileID: 1839244268}
   - component: {fileID: 1839244267}
+  - component: {fileID: 1839244269}
   m_Layer: 0
   m_Name: Scripthandler
   m_TagString: Untagged
@@ -2600,6 +2613,7 @@ MonoBehaviour:
   playerOneWon: 0
   playerTwoWon: 0
   isDraw: 0
+  isReplay: 0
   Scripthandler: {fileID: 1839244264}
   cubes:
   - {fileID: 865667677}
@@ -2630,6 +2644,28 @@ MonoBehaviour:
   playerOneWon: 0
   playerTwoWon: 0
   isDraw: 0
+--- !u!114 &1839244269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1839244264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8450e139342cd164083eab9e0203b6cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Scripthandler: {fileID: 1839244264}
+  ReplayWindow: {fileID: 760786270}
+  PlayerOneWonText: {fileID: 925890182}
+  PlayerTwoWonText: {fileID: 528523899}
+  DrawText: {fileID: 374815059}
+  isPlayerOne: 1
+  playerOneWon: 0
+  playerTwoWon: 0
+  isDraw: 0
+  isReplay: 0
 --- !u!1 &2079061818
 GameObject:
   m_ObjectHideFlags: 0
