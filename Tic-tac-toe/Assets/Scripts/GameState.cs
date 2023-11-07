@@ -25,7 +25,7 @@ public class GameState : MonoBehaviour
 
     void Update()
     {
-        isReplay = Scripthandler.GetComponent<UIHandler>().isReplay;
+        isReplay = Scripthandler.GetComponent<UIHandler>().isReplay; //checks restart boolean
         isPlayerOne = Scripthandler.GetComponent<Instantiating>().isPlayerOne;
 
         Ray ray = new Ray(cubes[counter].transform.position, transform.up);
@@ -189,7 +189,6 @@ public class GameState : MonoBehaviour
             playerOneWon = false;
             playerTwoWon = false;
             isDraw = false;
-            isReplay = false;
 
         }
         //--------------------------------------------------------------------------------------------------------------------------

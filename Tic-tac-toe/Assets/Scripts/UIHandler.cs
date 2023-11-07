@@ -26,41 +26,59 @@ public class UIHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //read Game State Publics
         isPlayerOne = Scripthandler.GetComponent<GameState>().isPlayerOne;
         playerOneWon = Scripthandler.GetComponent<GameState>().playerOneWon;
         playerTwoWon = Scripthandler.GetComponent<GameState>().playerTwoWon;
         isDraw = Scripthandler.GetComponent<GameState>().isDraw;
 
+        //Check for winners
         if (playerOneWon || playerTwoWon || isDraw)
         {
             GameEnd();
         }
+        //checks if game is restarted
+        if(Scripthandler.GetComponent<GameState>().isReplay)
+        {
+            ReplayWindow.SetActive(false);
+            if (playerOneWon)
+            {
+                PlayerOneWonText.SetActive(false);
+            }
+            else if (playerTwoWon)
+            {
+                PlayerTwoWonText.SetActive(false);
+            }
+            else
+            {
+                DrawText.SetActive(false);
+            }
+            isReplay = false;
+        }
     }
 
     // Pops up the End window and replay option.
-    void GameEnd()
-    {
-        ReplayWindow.SetActive(true);
-        if (playerOneWon){
-            PlayerOneWonText.SetActive(true);
-        }else if (playerTwoWon){
-            PlayerTwoWonText.SetActive(true);
-        }else{
-            DrawText.SetActive(true);
+    void GameEnd(){
+        if (isReplay == false)
+        {
+            ReplayWindow.SetActive(true);
+            if (playerOneWon)
+            {
+                PlayerOneWonText.SetActive(true);
+            }
+            else if (playerTwoWon)
+            {
+                PlayerTwoWonText.SetActive(true);
+            }
+            else
+            {
+                DrawText.SetActive(true);
+            }
         }
     }
+    //replay button action changes restart to true
     public void ReplayPressed()
     {
-        ReplayWindow.SetActive(false);
-        if (playerOneWon){
-            PlayerOneWonText.SetActive(false);
-        }
-        else if (playerTwoWon){
-            PlayerTwoWonText.SetActive(false);
-        }
-        else{
-            DrawText.SetActive(false);
-        }
         isReplay = true;
     }
 }
