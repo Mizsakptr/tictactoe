@@ -36,6 +36,7 @@ public class UIHandler : MonoBehaviour
         playerTwoWon = Scripthandler.GetComponent<GameState>().playerTwoWon;
         isDraw = Scripthandler.GetComponent<GameState>().isDraw;
 
+        //color changing grid and next player text
         if(isPlayerOne)
         {
             GridMaterial.color = Color.blue;
@@ -59,19 +60,10 @@ public class UIHandler : MonoBehaviour
         //checks if game is restarted
         if(Scripthandler.GetComponent<GameState>().isReplay)
         {
+            PlayerOneWonText.SetActive(false);
+            PlayerTwoWonText.SetActive(false);
+            DrawText.SetActive(false);
             ReplayWindow.SetActive(false);
-            if (playerOneWon)
-            {
-                PlayerOneWonText.SetActive(false);
-            }
-            else if (playerTwoWon)
-            {
-                PlayerTwoWonText.SetActive(false);
-            }
-            else
-            {
-                DrawText.SetActive(false);
-            }
             isReplay = false;
         }
     }
